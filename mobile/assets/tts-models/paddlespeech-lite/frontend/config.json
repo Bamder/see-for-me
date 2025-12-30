@@ -1,0 +1,8 @@
+{
+  "language": "zh-CN",
+  "phoneme_type": "phone",
+  "g2p": "G2PWModel",
+  "model_type": "G2PWModel_1.1",
+  "model_file": "model.onnx",
+  "note": "前端模型已就绪，使用G2PWModel进行文本到音素转换"
+}

@@ -1,0 +1,54 @@
+# SeeForMe Server 应用配置
+# 优先级：环境变量 > .env > 此配置文件
+
+# 服务器配置
+server:
+  host: "0.0.0.0"
+  port: 8000
+  reload: false
+
+# 视觉模型配置
+vision:
+  # YOLOv8 配置
+  yolo:
+    model_path: "models/yolov8n.onnx"
+    use_onnx: true
+    confidence_threshold: 0.25
+    iou_threshold: 0.45
+  
+  # 性能配置
+  max_concurrent_requests: 10
+  model_warmup: true  # 启动时预热模型
+
+# 语言模型配置
+language:
+  # 语言模式：template | qwen_local | qwen_cloud
+  mode: "qwen_local"
+
+  # 本地 Qwen / OpenAI 兼容接口配置（用于本地 vLLM / llama.cpp）
+  qwen_local:
+    base_url: "http://localhost:8001"  
+    api_key: "dummy"                  
+    model_name: "Qwen2.5-7B-Instruct"
+    max_tokens: 200
+    temperature: 0.7
+
+  # 云端 Qwen 配置示例（可选，用于 DashScope 等）
+  qwen_cloud:
+    base_url: "https://dashscope.aliyuncs.com/compatible-mode"
+    api_key: "" # 真实云端 Key 建议用环境变量 QWEN_API_KEY 注入  
+    model_name: "qwen-plus"
+    max_tokens: 200
+    temperature: 0.7
+  
+  # 超时与提示配置
+  response_initial_warn_delay: 1.0  # 从开始到第一次「稍等」提示的延迟（秒），如果在此时间内完成则不发送
+  response_warn_threshold: 5.0  # 触发「稍等」提示的间隔下限（秒），两次提示之间的最小间隔
+  response_timeout: 20.0  # 语言生成的硬超时时间（秒），本地 LLM 通常需要 10-20 秒
+  
+  # 提示词配置
+  prompts:
+    dir: null  # null 表示使用默认目录（server/prompts/）
+    scene: "vision_description"  # 默认使用的提示词场景
+    template: "default"  # 默认使用的提示词模板
+

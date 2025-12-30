@@ -1,0 +1,29 @@
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+env/
+server/server-env/
+
+# 模型与大文件
+server/models/
+*.onnx
+*.pt
+*.zip
+
+# 编辑器/IDE
+.vscode/
+.idea/
+
+# 日志/临时
+logs/
+*.log
+
+# cursor agents工作树文件
+.cursor/
+
+
+
+
+

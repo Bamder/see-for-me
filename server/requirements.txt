@@ -1,0 +1,24 @@
+fastapi
+uvicorn[standard]
+httpx
+python-dotenv
+pydantic
+pydantic-settings
+websockets
+
+# 视觉模型依赖 - YOLOv8n + ONNX 优化
+ultralytics==8.0.0
+onnxruntime>=1.15.0  # CPU版，如需GPU请使用 onnxruntime-gpu
+onnxscript>=0.1.0  # ONNX 导出所需（ultralytics 导出 ONNX 模型时需要）
+opencv-python>=4.7.0
+numpy>=1.24.0
+pillow>=9.5.0
+
+# 语言模型依赖 - 轻量级模型
+transformers>=4.30.0
+huggingface_hub<1.0,>=0.34.0
+torch>=2.0.0
+accelerate>=0.20.0  # 优化推理速度
+sentencepiece>=0.1.99  # T5 tokenizer 需要
+pyyaml>=6.0  # 提示词配置文件解析
+

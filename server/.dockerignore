@@ -1,0 +1,64 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+dist/
+build/
+
+# 虚拟环境
+venv/
+env/
+.venv/
+server-env/
+llm-llamacpp-env/
+llm-tools-env/
+llm-vllm-env/
+yolo-export-env/
+
+# 模型文件（通过卷挂载或运行时下载）
+models/*.onnx
+models/*.pt
+models/*.gguf
+models/*.safetensors
+models/*.bin
+
+# 日志和临时文件
+*.log
+logs/
+tmp/
+temp/
+
+# IDE 和编辑器
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Git
+.git/
+.gitignore
+
+# 测试和覆盖率
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# 文档构建
+docs/_build/
+
+# 操作系统
+.DS_Store
+Thumbs.db
+
+# 脚本（不需要在容器中）
+scripts/
+
+# 其他
+.env.local
+.env.*.local
+

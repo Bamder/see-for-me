@@ -1,0 +1,9 @@
+{
+  "sample_rate": 24000,
+  "hop_length": 300,
+  "win_length": 1200,
+  "n_fft": 2048,
+  "model_type": "hifigan",
+  "language": "zh-CN",
+  "model_file": "model.onnx"
+}
